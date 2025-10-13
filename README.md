@@ -16,31 +16,32 @@ Visit https://github.com/gbmj/gbmj-net to see three distinct litesite scripts ru
 ### How to Use:
 Copy litesite.py into the root folder for the files you want to
 build and edit the USER SETTINGS section. Create your common and
-page-specific input files (see `Assumed folder structure`),
-using content placeholders where desired (see `Placeholders`). Feel
+page-specific input files (see [Assumed folder structure](#assumed-file--folder-structure)),
+using content placeholders where desired (see [Placeholders](#placeholders)). Feel
 free to add custom logic to process your own tags and placeholders;
 the script indicates where such logic is needed.
 
 Use your preferred package manager to install the script's external
-dependencies (see `Requirements`), update the shebang line as needed,
+dependencies (see [Requirements](#requirements)), update the shebang line as needed,
 and run.
 
 ### Requirements:
 - python 3.13 or later
 - pypandoc 1.15 or later (plus pandoc 3.8 or later),
-see pypi.org/project/pypandoc/
-- python-frontmatter 1.1 or later, see pypi.org/project/python-frontmatter/
+see https://pypi.org/project/pypandoc/
+- python-frontmatter 1.1 or later, see https://pypi.org/project/python-frontmatter/
 - the common head, pre and post files must contain valid html; the
 script will insert them as is. The common head file must begin
-and end with <head> resp </head>.
+and end with `<head>` resp `</head>`.
 - you can use any file extension you like for your input files,
 including one you made up, but the actual content must be in
-a pandoc-supported input format. See pandoc.org/MANUAL.html#options.
+a pandoc-supported input format. See https://pandoc.org/MANUAL.html#options.
 - all input files you want the script to process must include a
 YAML frontmatter block containing `litesite:`. Files without this
 tag will be ignored.
 
 ### Assumed file & folder structure:
+```
 litesite.py         (this file; required)
 *.foo               (0+ input files; ext customizable)
 *.*                 (0+ other files/folders)
@@ -54,6 +55,7 @@ cmn/                (required; name customizable)
 |_ *.foo        (0+ input files)
 |_ *.*          (0+ other files)
 |_ */           (0+ subfolders with similar structure)
+```
 
 The script generates an html page for each input file in the root
 folder plus subfolders up to MAXDEPTH (customizable). Each html
