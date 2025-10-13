@@ -131,7 +131,7 @@ placeholder outside its scope, it will still be there in the
 final page (unless you modify the script to handle it).
 
 |scope|placeholder|description|
-|--:--|---------|---------------------------|
+|----|---------|---------------------------|
 |(any)|DOMAIN_URL_PH, HOME_URL_PH| a convenience for converting relative links to absolute. Note, these URLs contain a trailing slash, so proper use will look funny: For example, write `<img href="DOMAIN_URL_PHimages/me.png" />` and not `<img href="DOMAIN_URL_PH/images/me.png" />`.|
 |(any)|NAME_DOMAIN_TEXT_PH, SITENAME_TEXT_PH|insert the name of the overarching domain resp. this site. Useful for subsites that point back to the main site.
 |(any)|SELF_URL_PH|insert the absolute URL to the current page. Exclusively for a rel="canonical" link in your head file. The script disables all other self-links on a page.|
