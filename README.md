@@ -130,34 +130,15 @@ the script inserts a TOC at this location.
     final page (unless you modify the script to handle it).
 
 |scope|placeholder|description|
-|----|---------|---------------------------|
-|(any)|DOMAIN_URL_PH, HOME_URL_PH| a convenience for converting relative links to absolute. Use these when you link to other pages on your domain, and you will only have to update two constants in this script if you change domain names or move the site folder. Note, these URLs contain a trailing slash, so proper use will look funny: For example, write `<img href="DOMAIN_URL_PHimages/me.png" />` and not `<img href="DOMAIN_URL_PH/images/me.png" />`.|
-(any)   NAME_DOMAIN_TEXT_PH, SITENAME_TEXT_PH - insert the name
-            of the overarching domain resp. this site. Useful for
-            subsites that point back to the main site.
-(any)   SELF_URL_PH - insert the absolute URL to the current page.
-            Exclusively for a rel="canonical" link in your head file.
-            The script disables all other self-links on a page.
-(any)   YEAR_TEXT_PH, DATE_TEXT_PH - insert the year resp. full date
-            specified in the page's frontmatter (else the default value).
-            Note, the date will be in ISO 8601 format. Modify this
-            script if you want something prettier :).
-(any)   TITLE_TEXT_PH - insert the title specified in the page's
-            frontmatter (else the default value). Use in the head file's
-            <title></title> element (and elsewhere as you desire).
-(coll)  PREV_URL_PH, NEXT_URL_PH - insert URLs to the page's TOC
-            neighbors. Note, for nav links in headers, sidebars etc.
-            you might prefer the _LINK_ versions below.
-(coll,  PREV_LINK_PH, HOME_LINK_PH, NEXT_LINK_PH - insert the entire
-home        anchor element for the page's TOC neighbors resp. the home
-w/no        page. Use these instead of the _URL_ placeholders to 'gray
-.foo        out' nav links that shouldn't be active: the TOC link on the
-file)       home page itself, and the previous resp. next links on
-            the first resp. last pages in the Collection.
-(home   TOC_BLOCK_PH - insert a table of contents listing the Collection,
-with        with links to each page. Only active on the site's home
-.foo        page, and only if there's a corresponding index.foo file.
-file)
+|--:--|---------|---------------------------|
+|(any)|DOMAIN_URL_PH, HOME_URL_PH| a convenience for converting relative links to absolute. Note, these URLs contain a trailing slash, so proper use will look funny: For example, write `<img href="DOMAIN_URL_PHimages/me.png" />` and not `<img href="DOMAIN_URL_PH/images/me.png" />`.|
+|(any)|NAME_DOMAIN_TEXT_PH, SITENAME_TEXT_PH|insert the name of the overarching domain resp. this site. Useful for subsites that point back to the main site.
+|(any)|SELF_URL_PH|insert the absolute URL to the current page. Exclusively for a rel="canonical" link in your head file. The script disables all other self-links on a page.|
+|(any)|YEAR_TEXT_PH, DATE_TEXT_PH|insert the year resp. full date specified in the page's frontmatter (else the default value). Note, the date will be in ISO 8601 format. Modify the script if you want something prettier :).|
+|(any)|TITLE_TEXT_PH|insert the title specified in the page's frontmatter (else the default value). Use in the head file's `<title></title>` element (and elsewhere as you desire).|
+|(coll)|PREV_URL_PH, NEXT_URL_PH|insert URLs to the page's TOC neighbors. Note, for nav links in headers, sidebars etc. you might prefer the _LINK_ versions below.|
+|(coll, home w/no .foo file)|PREV_LINK_PH, HOME_LINK_PH, NEXT_LINK_PH|insert the entire anchor element for the page's TOC neighbors resp. the home page. Use these instead of the _URL_ placeholders to 'gray out' nav links that shouldn't be active: the TOC link on the home page itself, and the previous resp. next links on the first resp. last pages in the Collection.|
+|(home with .foo file)|TOC_BLOCK_PH|insert a table of contents listing the Collection, with links to each page. Only active on the site's home page, and only if there's a corresponding index.foo file.
 
 ### Custom tags and placeholders:
     You can process custom frontmatter tags and/or placeholders by
