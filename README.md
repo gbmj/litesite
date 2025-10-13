@@ -2,7 +2,7 @@
 
 ## Generate a static site for a blog-like collection of pages.
 
-litesite gives you nearly total freedom to design your site. The
+`litesite` gives you nearly total freedom to design your site. The
 script simply stitches together repeated content, such as headers,
 sidebars and footers, with page-specific content. How you structure
 those elements is up to you. The purpose is to reduce the work of
@@ -14,22 +14,20 @@ next build.
 Visit https://github.com/gbmj/gbmj-net to see three distinct litesite scripts running on a main site plus two subsites.
 
 ### How to Use
-Copy litesite.py into the root folder for the files you want to
+Use your preferred package manager to install the script's external
+dependencies (see [Requirements](#requirements)). Copy `litesite.py` into the root folder for the files you want to
 build and edit the USER SETTINGS section. Create your common and
 page-specific input files (see [Assumed folder structure](#assumed-file--folder-structure)),
 using content placeholders where desired (see [Placeholders](#placeholders)). Feel
 free to add custom logic to process your own tags and placeholders;
 the script indicates where such logic is needed.
 
-Use your preferred package manager to install the script's external
-dependencies (see [Requirements](#requirements)), update the shebang line as needed,
-and run.
-
 ### Requirements
 - python 3.13 or later
 - pypandoc 1.15 or later (plus pandoc 3.8 or later),
 see https://pypi.org/project/pypandoc/
 - python-frontmatter 1.1 or later, see https://pypi.org/project/python-frontmatter/
+
 - the common head, pre and post files must contain valid html; the
 script will insert them as is. The common head file must begin
 and end with `<head>` resp `</head>`.
@@ -161,13 +159,13 @@ https://github.com/gbmj/gbmj-net.
 
 You can create a non-blog-like site simply by omitting
 blog-like navigation placeholders (those with `PREV`, `NEXT`, `TOC`) and
-using the same pre and post files for all pages, or by having
+using the same `pre` and `post` files for all pages, or by having
 no input files with `litesite: collection` in the frontmatter.
 
-If you write your content in markdown: pandoc supports a whole
+If you write your content in markdown, pandoc supports a whole
 lot of fancy stuff out of the box (fenced code, header attributes,
 definition lists, pipe tables, ...) without extra options or
-extensions, if you use 'markdown' as your input format. See
+extensions. See
 https://pandoc.org/MANUAL.html#pandocs-markdown.
 
 ### Limitations:
