@@ -140,8 +140,8 @@ def _create_meta_defaults(path: Path) -> dict[str, typ.Any]:
 def _process_incoming_meta(
     current: dict[str, typ.Any], new: dict[str, typ.Any]
 ) -> None:
-    """Replace current values with new ones if present, ignoring keys not
-    already in current."""
+    """Replace `current` values with `new` if present, ignoring keys not
+    already in `current`."""
     # don't assume the values in `new` are of the type you expect --
     # for example, frontmatter.parse returns a boolean, not the
     # actual value, for strings/ints like `yes`, `no`, `0`, ``, ...

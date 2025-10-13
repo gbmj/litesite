@@ -5,10 +5,7 @@
 `litesite` gives you nearly total freedom to design your site. The
 script simply stitches together repeated content, such as headers,
 sidebars and footers, with page-specific content. How you structure
-those elements is up to you. The purpose is to reduce the work of
-tweaking something that repeats across many pages: change it in
-just one place, and it propagates to all relevant pages on your
-next build.
+and style those elements is up to you.
 
 ### Examples
 Visit https://github.com/gbmj/gbmj-net to see three distinct litesite scripts running on a main site plus two subsites.
@@ -27,7 +24,6 @@ the script indicates where such logic is needed.
 - pypandoc 1.15 or later (plus pandoc 3.8 or later),
 see https://pypi.org/project/pypandoc/
 - python-frontmatter 1.1 or later, see https://pypi.org/project/python-frontmatter/
-
 - the common head, pre and post files must contain valid html; the
 script will insert them as is. The common head file must begin
 and end with `<head>` resp `</head>`.
@@ -109,7 +105,7 @@ For missing tags, the script defaults to:
 - `date:` 0001-01-01
 - `blurb:` ''
 
-(For files named `index`, the script defaults to the name of the
+(For files named `index`, the title defaults to the name of the
 enclosing folder.)
 
 ### Placeholders
@@ -122,31 +118,31 @@ produce valid html:
 - `*_URL_PH` - of the form `https://bar.foo/baz`; use anywhere
 a full web address including protocol is valid
 - `*_LINK_PH` - of the form
-`<a href="https://bar.foo/baz">previous</a>`;
+`<a href="https://bar.foo/baz">next</a>`;
 use anywhere a complete anchor element is valid
 
 #### List of standard placeholders
-In the list below, (scope) indicates the pages on which the
+In the list below, *scope* indicates the pages on which the
 script will process the given placeholder. If you use a
 placeholder outside its scope, it will still be there in the
 final page (unless you modify the script to handle it).
 
 |scope|placeholder|description|
 |------|---------|---------------------------|
-|(any)|`DOMAIN_URL_PH`, `HOME_URL_PH`| a convenience for converting relative links to absolute. Note, these URLs contain a trailing slash, so proper use will look funny: For example, write `<img href="DOMAIN_URL_PHimages/me.png" />` and not `<img href="DOMAIN_URL_PH/images/me.png" />`.|
-|(any)|`NAME_DOMAIN_TEXT_PH`, `SITENAME_TEXT_PH`|insert the name of the overarching domain resp. this site. Useful for subsites that point back to the main site.
-|(any)|`SELF_URL_PH`|insert the absolute URL to the current page. Exclusively for a rel="canonical" link in your head file. The script disables all other self-links on a page.|
+|(any)|`DOMAIN_URL_PH`, `HOME_URL_PH`| a convenience for converting relative links to absolute. Note, these URLs contain a trailing slash, so proper use will look funny: write `<img href="DOMAIN_URL_PHimages/me.png" />` and not `<img href="DOMAIN_URL_PH/images/me.png" />`.|
+|(any)|`NAME_DOMAIN_TEXT_PH`, `SITENAME_TEXT_PH`|insert the name of the overarching domain resp. this site. Useful on subsites that point back to the main site.
+|(any)|`SELF_URL_PH`|insert the absolute URL to the current page. Exclusively for a `rel="canonical"` link in your head file. The script disables all other self-links on a page.|
 |(any)|`YEAR_TEXT_PH`, `DATE_TEXT_PH`|insert the year resp. full date specified in the page's frontmatter (else the default value). Note, the date will be in ISO 8601 format. Modify the script if you want something prettier :).|
-|(any)|`TITLE_TEXT_PH`|insert the title specified in the page's frontmatter (else the default value). Use in the head file's `<title></title>` element (and elsewhere as you desire).|
+|(any)|`TITLE_TEXT_PH`|insert the title specified in the page's frontmatter (else the default value). Use in the head file's `<title>` element (and elsewhere as you desire).|
 |(coll)|`PREV_URL_PH`, `NEXT_URL_PH`|insert URLs to the page's TOC neighbors. Note, for nav links in headers, sidebars etc. you might prefer the `_LINK_` versions below.|
 |(coll, home w/no `.foo` file)|`PREV_LINK_PH`, `HOME_LINK_PH`, `NEXT_LINK_PH`|insert the entire anchor element for the page's TOC neighbors resp. the home page. Use these instead of the `_URL_` placeholders to 'gray out' nav links that shouldn't be active: the TOC link on the home page itself, and the previous resp. next links on the first resp. last pages in the Collection.|
 |(home with `.foo` file)|`TOC_BLOCK_PH`|insert a table of contents listing the Collection, with links to each page. Only active on the site's home page, and only if there's a corresponding `index.foo` file.
 
-### Custom tags and placeholders:
+### Custom tags and placeholders
 You can process custom frontmatter tags and/or placeholders by
 adding the required logic where indicated in the script comments.
 
-### Tips:
+### Tips
 The script starts from the directory you run it in and creates a
 self-contained site -- so you could run separate copies in several
 folders on your domain, creating multiple self-contained collections
@@ -168,7 +164,7 @@ definition lists, pipe tables, ...) without extra options or
 extensions. See
 https://pandoc.org/MANUAL.html#pandocs-markdown.
 
-### Limitations:
+### Limitations
 This script is only aware of page-level common elements:
 their contents are inserted between the `<body>` and `<main>` (
 resp. `</main>` and `</body>`) tags. If you need section-level headers,
